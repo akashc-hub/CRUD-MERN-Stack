@@ -1,13 +1,19 @@
 const express = require("express");
 const app = express();
 const mongoose = require("mongoose");
+const dotenv = require("dotenv");
+dotenv.config();
 
 mongoose
-    .connect("mongodb://127.0.0.1:27017/merndb")
+    .connect(process.env.URI)
     .then(() => {
         console.log("Connected Successfully...!");
 
-        app.listen(4000);
+        app.listen(process.env.PORT || 8000, (err) => {
+            if(err) console.log(err);
+
+            console.log()
+        });
 })
     .catch((error) => {
         console.log("error", error)
