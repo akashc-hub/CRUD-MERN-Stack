@@ -12,7 +12,7 @@ mongoose
         app.listen(process.env.PORT || 8000, (err) => {
             if(err) console.log(err);
 
-            console.log()
+            console.log("Running Successfullt at", process.env.PORT)
         });
 })
     .catch((error) => {
